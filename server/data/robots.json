@@ -1,0 +1,242 @@
+[
+  {
+    "id": 1,
+    "name": "Robot One",
+    "configuration": {
+      "hasSentience": false,
+      "hasWheels": false,
+      "hasTracks": false,
+      "numberOfRotors": 5,
+      "Colour": "green"
+    },
+    "statuses": [ "loose screws", "paint scratched", "rusty" ]
+  },
+  {
+    "id": 2,
+    "name": "Robot Two",
+    "configuration": {
+      "hasSentience": true,
+      "hasWheels": false,
+      "hasTracks": false,
+      "numberOfRotors": 2,
+      "Colour": "blue"
+    },
+    "statuses": [ "on fire" ]
+  },
+  {
+    "id": 3,
+    "name": "Robot Three",
+    "configuration": {
+      "hasSentience": true,
+      "hasWheels": true,
+      "hasTracks": false,
+      "numberOfRotors": 6,
+      "Colour": "red"
+    },
+    "statuses": []
+  },
+  {
+    "id": 4,
+    "name": "Robot Four",
+    "configuration": {
+      "hasSentience": false,
+      "hasWheels": false,
+      "hasTracks": true,
+      "numberOfRotors": 10,
+      "Colour": "red"
+    },
+    "statuses": [ "paint scratched", "rusty" ]
+  },
+  {
+    "id": 5,
+    "name": "Robot Five",
+    "configuration": {
+      "hasSentience": true,
+      "hasWheels": true,
+      "hasTracks": false,
+      "numberOfRotors": 0,
+      "Colour": "green"
+    },
+    "statuses": [ "on fire", "rusty" ]
+  },
+  {
+    "id": 6,
+    "name": "Robot Six",
+    "configuration": {
+      "hasSentience": false,
+      "hasWheels": true,
+      "hasTracks": true,
+      "numberOfRotors": 5,
+      "Colour": "blue"
+    },
+    "statuses": [ "loose screws", "paint scratched", "rusty" ]
+  },
+  {
+    "id": 7,
+    "name": "Robot Seven",
+    "configuration": {
+      "hasSentience": true,
+      "hasWheels": true,
+      "hasTracks": true,
+      "numberOfRotors": 2,
+      "Colour": "blue"
+    },
+    "statuses": [ "loose screws", "paint scratched", "rusty" ]
+  },
+  {
+    "id": 8,
+    "name": "Robot Eight",
+    "configuration": {
+      "hasSentience": false,
+      "hasWheels": true,
+      "hasTracks": false,
+      "numberOfRotors": 2,
+      "Colour": "blue"
+    },
+    "statuses": ["on fire", "loose screws", "paint scratched", "rusty" ]
+  },
+  {
+    "id": 9,
+    "name": "Robot Nine",
+    "configuration": {
+      "hasSentience": false,
+      "hasWheels": false,
+      "hasTracks": true,
+      "numberOfRotors": 4,
+      "Colour": "blue"
+    },
+    "statuses": [ "rusty" ]
+  },
+  {
+    "id": 10,
+    "name": "Robot Ten",
+    "configuration": {
+      "hasSentience": true,
+      "hasWheels": true,
+      "hasTracks": false,
+      "numberOfRotors": 2,
+      "Colour": "green"
+    },
+    "statuses": ["on fire", "loose screws", "rusty" ]
+  },
+  {
+    "id": 11,
+    "name": "Robot Eleven",
+    "configuration": {
+      "hasSentience": false,
+      "hasWheels": false,
+      "hasTracks": false,
+      "numberOfRotors": 5,
+      "Colour": "green"
+    },
+    "statuses": [ "loose screws", "paint scratched", "rusty" ]
+  },
+  {
+    "id": 12,
+    "name": "Robot Twelve",
+    "configuration": {
+      "hasSentience": true,
+      "hasWheels": false,
+      "hasTracks": false,
+      "numberOfRotors": 2,
+      "Colour": "blue"
+    },
+    "statuses": [ "on fire" ]
+  },
+  {
+    "id": 13,
+    "name": "Robot Thirteen",
+    "configuration": {
+      "hasSentience": true,
+      "hasWheels": true,
+      "hasTracks": false,
+      "numberOfRotors": 6,
+      "Colour": "red"
+    },
+    "statuses": []
+  },
+  {
+    "id": 14,
+    "name": "Robot Fourteen",
+    "configuration": {
+      "hasSentience": false,
+      "hasWheels": false,
+      "hasTracks": true,
+      "numberOfRotors": 10,
+      "Colour": "red"
+    },
+    "statuses": [ "paint scratched", "rusty" ]
+  },
+  {
+    "id": 15,
+    "name": "Robot Fifteen",
+    "configuration": {
+      "hasSentience": true,
+      "hasWheels": true,
+      "hasTracks": false,
+      "numberOfRotors": 0,
+      "Colour": "green"
+    },
+    "statuses": [ "on fire", "rusty" ]
+  },
+  {
+    "id": 16,
+    "name": "Robot Sixteen",
+    "configuration": {
+      "hasSentience": false,
+      "hasWheels": true,
+      "hasTracks": true,
+      "numberOfRotors": 5,
+      "Colour": "blue"
+    },
+    "statuses": [ "loose screws", "paint scratched", "rusty" ]
+  },
+  {
+    "id": 17,
+    "name": "Robot Seventeen",
+    "configuration": {
+      "hasSentience": true,
+      "hasWheels": true,
+      "hasTracks": true,
+      "numberOfRotors": 2,
+      "Colour": "blue"
+    },
+    "statuses": [ "loose screws", "paint scratched", "rusty" ]
+  },
+  {
+    "id": 18,
+    "name": "Robot Eighteen",
+    "configuration": {
+      "hasSentience": false,
+      "hasWheels": true,
+      "hasTracks": false,
+      "numberOfRotors": 6,
+      "Colour": "red"
+    },
+    "statuses": ["on fire", "loose screws", "paint scratched", "rusty" ]
+  },
+  {
+    "id": 19,
+    "name": "Robot Nineteen",
+    "configuration": {
+      "hasSentience": false,
+      "hasWheels": false,
+      "hasTracks": true,
+      "numberOfRotors": 4,
+      "Colour": "blue"
+    },
+    "statuses": [ "rusty" ]
+  },
+  {
+    "id": 20,
+    "name": "Robot Twenty",
+    "configuration": {
+      "hasSentience": true,
+      "hasWheels": true,
+      "hasTracks": false,
+      "numberOfRotors": 2,
+      "Colour": "green"
+    },
+    "statuses": ["on fire", "loose screws", "rusty" ]
+  }
+]
