@@ -4,7 +4,7 @@
   "description": "The Demo for the Quality Analysis of the Robots in a Factory.",
   "main": "index.js",
   "scripts": {
-    "install": "cd ./client && npm install && cd ../server && npm install",
+    "i": "npm install && cd ./client && npm install && cd ../server && npm install",
     "start": "concurrently \"npm run client\" \"npm run server\"",
     "client": "npm start --prefix ./client",
     "server": "npm start --prefix ./server"
