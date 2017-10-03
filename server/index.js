@@ -1,6 +1,7 @@
 var express = require('express');
 var fs = require('fs');
 var jsonfile = require('jsonfile');
+var fp = require('lodash/fp');
 
 const app = express();
 
@@ -33,7 +34,9 @@ app.post('/api/robots/extinguish/:id', (req, res) => {
 
     let extinguishObj = jsonfile.readFileSync(extinguishFile);
 
-    extinguishObj["extinguishRobots"].push(id);
+    if(fp.indexOf(id)(extinguishObj["extinguishRobots"]) == -1) {
+        extinguishObj["extinguishRobots"].push(id);
+    }
 
     jsonfile.writeFileSync(extinguishFile, extinguishObj);
 
@@ -45,7 +48,9 @@ app.post('/api/robots/recycle/:id', (req, res) => {
     const id = parseInt(req.params.id, 10);
     let recycleObj = jsonfile.readFileSync(recycleFile);
 
-    recycleObj.recycleRobots.push(id);
+    if(fp.indexOf(id)(recycleObj["recycleRobots"]) == -1) {
+        recycleObj["recycleRobots"].push(id);
+    }
 
     jsonfile.writeFileSync(recycleFile, recycleObj);
 
@@ -53,14 +58,15 @@ app.post('/api/robots/recycle/:id', (req, res) => {
 });
 
 app.post('/api/shipment/create', (req, res) => {
-    const shipmentRobotIds = req.query.array;
+    const shipmentRobotIds = fp.map(parseInt)(JSON.parse(req.query.array));
+
     let shipmentObj = jsonfile.readFileSync(shipmentFile);
 
-    shipmentObj.shipment.push(id);
+    shipmentObj["shipment"] = shipmentRobotIds;
 
     jsonfile.writeFileSync(shipmentFile, shipmentObj);
 
-    res.send(`ID ${id} added to shipment list.`);
+    res.send(`ID ${shipmentRobotIds} added to shipment list.`);
 });
 
 app.listen(3000, () => {

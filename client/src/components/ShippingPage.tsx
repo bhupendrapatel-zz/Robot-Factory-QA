@@ -6,8 +6,8 @@ import {
 } from '../actions';
 
 class ShippingPage extends React.Component<any, any> {
-    renderRobotsList(category: any) {
-        const factorySecondRobots = this.props.robots.filter((robot: any) => {
+    renderRobotsList(category: string) {
+        const factorySecondRobots = this.props.robots.filter((robot: any = {}) => {
             return _.indexOf(robot.qaCategory, category) > -1 && !robot.shipped;
         });
 

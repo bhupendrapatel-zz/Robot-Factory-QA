@@ -43,21 +43,21 @@ export const changeAppStatus = (newStatus: string) => {
     }
 };
 
-export const addToRecycle = (robot: any) => {
+export const addToRecycle = (robot: any = {}) => {
     return {
         type: ADD_TO_RECYCLED,
         payload: robot
     }
 };
 
-export const addToExtinguish = (robot: any) => {
+export const addToExtinguish = (robot: any = {}) => {
     return {
         type: ADD_TO_EXTINGUISH,
         payload: robot
     }
 };
 
-export const updateRobotQaCategory = (id: any, category: any) => {
+export const updateRobotQaCategory = (id: number, category: any) => {
     return {
         type: UPDATE_ROBOT_QA_CATEGORY,
         payload: {
@@ -67,21 +67,21 @@ export const updateRobotQaCategory = (id: any, category: any) => {
     }
 };
 
-export const addToShipping = (robot: any) => {
+export const addToShipping = (robot: any = {}) => {
     return {
         type: ADD_TO_SHIPPING,
         robot
     }
 };
 
-export const removeFromShipping = (robot: any) => {
+export const removeFromShipping = (robot: any = {}) => {
     return {
         type: REMOVE_FROM_SHIPPING,
         robot
     }
 };
 
-export const createNewShipment = (arrayOfIds: any) => {
+export const createNewShipment = (arrayOfIds: any = []) => {
     const URL = `${CREATE_SHIPMENT_URL}?array=${JSON.stringify(arrayOfIds)}`;
     const request = axios.post(URL);
     return {
@@ -90,7 +90,7 @@ export const createNewShipment = (arrayOfIds: any) => {
     }
 };
 
-export const addApiToExtinguishFile = (id: any) => {
+export const addApiToExtinguishFile = (id: number) => {
     const URL = `${EXTINGUISH_URL}/${JSON.stringify(id)}`;
     const request = axios.post(URL);
     return {
@@ -99,7 +99,7 @@ export const addApiToExtinguishFile = (id: any) => {
     }
 };
 
-export const addApiToRecycleFile = (id: any) => {
+export const addApiToRecycleFile = (id: number) => {
     const URL = `${RECYCLE_URL}/${JSON.stringify(id)}`;
     const request = axios.post(URL);
     return {
