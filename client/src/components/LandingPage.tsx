@@ -2,8 +2,7 @@ import React from 'react';
 import {
     ON_LOAD,
     QA_IN_PROGRESS,
-    QA_COMPLETE,
-    CHANGE_APP_STATUS
+    QA_COMPLETE
 } from '../actions';
 import { categorizeRobots } from '../util/categorizeRobots';
 

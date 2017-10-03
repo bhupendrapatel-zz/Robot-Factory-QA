@@ -11,7 +11,7 @@ class ShippingPage extends React.Component<any, any> {
             return _.indexOf(robot.qaCategory, category) > -1 && !robot.shipped;
         });
 
-//Each robot’s id, name, colour and other configuration should be shown
+        //Each robot’s id, name, colour and other configuration should be shown
 
         return factorySecondRobots.map((robot: any) => {
             const config = {
@@ -36,9 +36,9 @@ class ShippingPage extends React.Component<any, any> {
     }
 
     renderShippingList() {
-        const shippedRobotsList = this.props.robots.filter((robot: any) => robot.shipped);
+        const shippedRobotsList = this.props.robots.filter((robot: any = {}) => robot.shipped);
 
-        return shippedRobotsList.map((robot: any) => {
+        return shippedRobotsList.map((robot:  any = {}) => {
             const config = {
                 sentience: robot.configuration.hasSentience ? 'Yes' : 'No',
                 wheels: robot.configuration.hasWheels ? 'Yes' : 'No',
@@ -61,7 +61,7 @@ class ShippingPage extends React.Component<any, any> {
     }
 
     renderSendShipmentButton() {
-        const shippedRobotsList = this.props.robots.filter((robot: any) => robot.shipped);
+        const shippedRobotsList = this.props.robots.filter((robot:  any = {}) => robot.shipped);
         if (shippedRobotsList.length > 0) {
             return (
                 <input type="button" className="btn btn-primary" value="Send Shipment"
@@ -71,8 +71,8 @@ class ShippingPage extends React.Component<any, any> {
     }
 
     sendShipment() {
-        const shippedRobotsList = this.props.robots.filter((robot: any) => robot.shipped);
-        const idOfShippedRobots = shippedRobotsList.map((robot: any) => {
+        const shippedRobotsList = this.props.robots.filter((robot:  any = {}) => robot.shipped);
+        const idOfShippedRobots = shippedRobotsList.map((robot:  any = {}) => {
             return robot.id;
         });
         this.props.createNewShipment(idOfShippedRobots);

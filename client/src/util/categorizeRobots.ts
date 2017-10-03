@@ -44,23 +44,23 @@ const filterToCategory = (robotItem: any, addToExtinguish: any, addToRecycle: an
     }
 };
 
-const hasFewerThan3GreaterThan8Rotors = (configuration: any) => {
+const hasFewerThan3GreaterThan8Rotors = (configuration: any = {}) => {
     return configuration.numberOfRotors < 3 || configuration.numberOfRotors > 8;
 };
 
-const hasAnyRotorAndBlue = (configuration: any) => {
+const hasAnyRotorAndBlue = (configuration: any = {}) => {
     return configuration.numberOfRotors > 0 && configuration.colour === COLOR.BLUE;
 };
 
-const hasBothWheelsAndTracks = (configuration: any) => {
+const hasBothWheelsAndTracks = (configuration: any = {}) => {
     return configuration.hasWheels && configuration.hasTracks;
 };
 
-const hasWheelsAndIsRusty = (configuration: any, statuses: any) => {
+const hasWheelsAndIsRusty = (configuration: any = {}, statuses: any = []) => {
     return configuration.hasWheels && _.indexOf(statuses, ROBOT_STATUS.RUSTY) > -1;
 };
 
-const hasSentienceAndLooseScrews = (configuration: any, statuses: any) => {
+const hasSentienceAndLooseScrews = (configuration: any = {}, statuses: any = []) => {
     return configuration.hasSentience && _.indexOf(statuses, ROBOT_STATUS.LOOSE_SCREWS) > -1;
 };
 
@@ -68,20 +68,20 @@ const isOnFire = (statuses: any) => {
     return _.indexOf(statuses, ROBOT_STATUS.ON_FIRE) > -1;
 };
 
-const isRusty = (statuses: any) => {
+const isRusty = (statuses: any = []) => {
     return _.indexOf(statuses, ROBOT_STATUS.RUSTY) > -1;
 };
 
-const hasLooseScrews = (statuses: any) => {
+const hasLooseScrews = (statuses: any = []) => {
     return _.indexOf(statuses, ROBOT_STATUS.LOOSE_SCREWS) > -1;
 };
 
-const hasScratchedPaint = (statuses: any) => {
+const hasScratchedPaint = (statuses: any = []) => {
     return _.indexOf(statuses, ROBOT_STATUS.PAINT_SCRATCHED) > -1;
 };
 
 
-const sortForShipping = (robot: any, updateRobotQaCategory: any) => {
+const sortForShipping = (robot: any = {}, updateRobotQaCategory: any) => {
     const {id, statuses} = robot;
     if (isRusty(statuses) || hasLooseScrews(statuses) || hasScratchedPaint(statuses)) {
         updateRobotQaCategory(id, ADD_TO_FACTORY_SECOND);
@@ -91,13 +91,13 @@ const sortForShipping = (robot: any, updateRobotQaCategory: any) => {
 };
 
 export const categorizeRobots = (robotsArray: any, addToRecycle: any, addToExtinguish: any, updateRobotQaCategory: any, addApiToExtinguishFile: any, addApiToRecycleFile: any) => {
-    robotsArray.forEach((robot: any) => {
+    robotsArray.forEach((robot: any = {}) => {
         filterToCategory(robot, addToRecycle, addToExtinguish, updateRobotQaCategory, addApiToExtinguishFile, addApiToRecycleFile);
     });
-    let robotsForShipping = STORE.getState().robots.filter((robot: any) => {
+    let robotsForShipping = STORE.getState().robots.filter((robot: any = {}) => {
         return !(robot.qaCategory.length > 0);
     });
-    robotsForShipping.forEach((robot: any) => {
+    robotsForShipping.forEach((robot: any = {}) => {
         sortForShipping(robot, updateRobotQaCategory);
     });
 };

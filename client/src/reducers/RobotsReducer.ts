@@ -11,7 +11,7 @@ import {
 export const RobotsReducer = (state: any = [], action: any = {}) => {
     switch (action.type) {
         case FETCH_ROBOTS:
-            return action.payload.data.map((robot: any) => {
+            return action.payload.data.map((robot: any = {}) => {
                 return {
                     ...robot,
                     qaCategory: [],
@@ -19,7 +19,7 @@ export const RobotsReducer = (state: any = [], action: any = {}) => {
                 }
             });
         case UPDATE_ROBOT_QA_CATEGORY:
-            return state.map((robot: any, i: any) => {
+            return state.map((robot: any = {}) => {
                 if (robot.id !== action.payload.id) {
                     return robot;
                 }
@@ -30,7 +30,7 @@ export const RobotsReducer = (state: any = [], action: any = {}) => {
                 }
             });
         case ADD_TO_SHIPPING:
-            return state.map((robot: any) => {
+            return state.map((robot: any = {}) => {
                 if (robot.id !== action.robot.id) {
                     return robot;
                 }
@@ -41,7 +41,7 @@ export const RobotsReducer = (state: any = [], action: any = {}) => {
                 }
             });
         case REMOVE_FROM_SHIPPING:
-            return state.map((robot: any) => {
+            return state.map((robot: any = {}) => {
                 if (robot.id !== action.robot.id) {
                     return robot;
                 }
