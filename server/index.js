@@ -1,5 +1,6 @@
 var express = require('express');
 var fs = require('fs');
+var jsonfile = require('jsonfile');
 
 const app = express();
 
@@ -19,105 +20,47 @@ app.get('/', (req, res) => {
 });
 
 app.get('/api/robots', (req, res) => {
-    fs.readFile(robotsFile, 'utf8', (err, data) => {
+    jsonfile.readFile(robotsFile, (err, data) => {
         if (err) {
             throw err;
         }
-        res.send(JSON.parse(data));
+        res.send(data);
     });
 });
 
 app.post('/api/robots/extinguish/:id', (req, res) => {
     const id = parseInt(req.params.id, 10);
-    if (!fs.existsSync(extinguishFile)) {
-        let data = {
-            extinguishRobots: []
-        };
-        data.extinguishRobots.push(id);
-        fs.writeFile(extinguishFile, JSON.stringify(data), 'utf8', (err, result) => {
-            if (err) {
-                throw err;
-            }
-            res.send(`ID ${id} added to extinguish list.`);
-        });
-    } else {
-        let alreadyAddedIds;
-        fs.readFile(extinguishFile, 'utf8', (err, result) => {
-            if (err) {
-                throw err
-            };
 
-            alreadyAddedIds = JSON.parse(result);
-            if (!alreadyAddedIds.hasOwnProperty('extinguishRobots')) {
-                alreadyAddedIds = {
-                    extinguishRobots: []
-                };
-            }
-            alreadyAddedIds.extinguishRobots.push(id);
+    let extinguishObj = jsonfile.readFileSync(extinguishFile);
 
+    extinguishObj["extinguishRobots"].push(id);
 
-            fs.writeFile(extinguishFile, JSON.stringify(alreadyAddedIds), 'utf8', (err, res) => {
-                if (err) {
-                    throw err;
-                }
-                console.log('Re-written extinguish file with new data');
-            });
-            res.send(`ID ${id} added to extinguish list.`);
-        });
-    }
+    jsonfile.writeFileSync(extinguishFile, extinguishObj);
+
+    res.send(`ID ${id} added to extinguish list.`);
 });
 
 
 app.post('/api/robots/recycle/:id', (req, res) => {
     const id = parseInt(req.params.id, 10);
-    if (!fs.existsSync(recycleFile)) {
-        let data = {
-            recycleRobots: []
-        };
-        data.recycleRobots.push(id);
-        console.log(JSON.stringify(data));
-        fs.writeFile(recycleFile, JSON.stringify(data), 'utf8', (err, result) => {
-            if (err) {
-                throw err;
-            }
-            res.send(`ID ${id} added to recycle list.`);
-        });
-    } else {
-        let alreadyAddedIds;
-        fs.readFile(recycleFile, 'utf8', (err, result) => {
-            if (err) {
-                throw err
-            };
+    let recycleObj = jsonfile.readFileSync(recycleFile);
 
-            alreadyAddedIds = JSON.parse(result);
+    recycleObj.recycleRobots.push(id);
 
-            if (!alreadyAddedIds.hasOwnProperty('recycleRobots')) {
-                alreadyAddedIds = {
-                    recycleRobots: []
-                };
-            }
+    jsonfile.writeFileSync(recycleFile, recycleObj);
 
-            alreadyAddedIds.recycleRobots.push(id);
-
-            fs.writeFile(recycleFile, JSON.stringify(alreadyAddedIds), 'utf8', (err, res) => {
-                if (err) {
-                    throw err;
-                }
-                console.log('Re-written recycle file with new data');
-            });
-            res.send(`ID ${id} added to recycle list.`);
-        });
-    }
+    res.send(`ID ${id} added to recycle list.`);
 });
 
 app.post('/api/shipment/create', (req, res) => {
     const shipmentRobotIds = req.query.array;
-    fs.writeFile(shipmentFile, shipmentRobotIds, 'utf8', (err, result) => {
-        if (err) {
-            throw err;
-        }
-        res.send(`IDs ${JSON.stringify(shipmentRobotIds)} added to shipment list.`);
-    });
+    let shipmentObj = jsonfile.readFileSync(shipmentFile);
+
+    shipmentObj.shipment.push(id);
+
+    jsonfile.writeFileSync(shipmentFile, shipmentObj);
+
+    res.send(`ID ${id} added to shipment list.`);
 });
 
 app.listen(3000, () => {

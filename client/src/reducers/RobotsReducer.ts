@@ -8,7 +8,7 @@ import {
     ADD_TO_RECYCLE_API
 } from '../actions';
 
-export const RobotsReducer = (state: any = [], action: any) => {
+export const RobotsReducer = (state: any = [], action: any = {}) => {
     switch (action.type) {
         case FETCH_ROBOTS:
             return action.payload.data.map((robot: any) => {

@@ -36,7 +36,7 @@ export const fetchRobots = () => {
     }
 };
 
-export const changeAppStatus = (newStatus: any) => {
+export const changeAppStatus = (newStatus: string) => {
     return {
         type: CHANGE_APP_STATUS,
         newStatus

@@ -28,7 +28,7 @@ class LandingPage extends React.Component<any, any> {
         }
         const robotsInBatch = this.props.robots[0].data;
         return (
-            robotsInBatch.map((robot: any) => <div key={robot.id}>{robot.id}</div>)
+            robotsInBatch.map((robot: any = {}) => <div key={robot.id}>{robot.id}</div>)
         );
     };
 
@@ -73,7 +73,6 @@ class LandingPage extends React.Component<any, any> {
                 <div className="alert alert-success">
                     { this.renderMessage() }
                 </div>
-                <p></p>
                 <div>
                     { this.renderButton() }
                 </div>
