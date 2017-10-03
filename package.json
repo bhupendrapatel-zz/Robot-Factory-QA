@@ -1,0 +1,24 @@
+{
+  "name": "robot-factory-qa",
+  "version": "1.0.0",
+  "description": "The Demo for the Quality Analysis of the Robots in a Factory.",
+  "main": "index.js",
+  "scripts": {
+    "start": "concurrently \"npm run client\" \"npm run server\"",
+    "client": "npm start --prefix ./client",
+    "server": "npm start --prefix ./server"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bhupendrapatel/Robot-Factory-QA.git"
+  },
+  "author": "Bhupendra Patel",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/bhupendrapatel/Robot-Factory-QA/issues"
+  },
+  "homepage": "https://github.com/bhupendrapatel/Robot-Factory-QA#readme",
+  "dependencies": {
+    "concurrently": "^3.5.0"
+  }
+}
